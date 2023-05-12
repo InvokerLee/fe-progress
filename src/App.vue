@@ -1,17 +1,27 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>HelloWorld</h1>
+    <button @click="a2t">ArrayToTree</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { arrayToTree, arrayToTree2 } from '@/utils';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: {},
+  methods: {
+    a2t() {
+      const list = require('@/jsons/arr.json');
+      console.time('1')
+      console.log(arrayToTree(list, null))
+      console.timeEnd('1')
+      console.time('2')
+      console.log(arrayToTree2(list, null))
+      console.timeEnd('2')
+    }
+  },
 }
 </script>
 
